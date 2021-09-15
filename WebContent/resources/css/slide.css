@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+/* 가장 바깥, 슬라이드의 영역을 정함. */
+.wrap_slide{
+
+	left: 25vw;
+	position: relative;
+	
+}
+
+.slide{
+	display: flex;   /* 목록을 일열로 나오게 해줌.(옆으로) */
+	overflow: hidden;  /* 슬라이드 영역 내에서 보여지지 않고, 오버플로우된 부분(옆 사진들) 을 숨김. */
+	width: 50vw;
+	height: 25vw;
+}
+
+.slide>li{       /* 후손 사진들(li요소들) 의 크들이 자동으로 상위 슬라이드 영역의 크기로 맞춰지는 것을 막아줌.(오버플로우 되게 만듬)  */
+	flex-shrink: 0;
+}
+
+/* 모든 후손요소(슬라이드에선 사진들이 되겠지.) 의 크기를 지정. */
+.slide *{
+	width: 100%;
+	height: 100%;
+}
+
+.arrow {
+	display: flex;
+	justify-content: space-between;
+	width: 50vw;    /* 크기를 부모요소를따라가게 하면, 엄청 간격이 넓어진다.. 부모요소가 사진 4개를 이어붙엿기때문에.. */
+	height: 25vw;   /* 화살표 높이도 , 상위요소 크기만하게 설정한 것.  */
+	position: absolute; /* 화살표가 사진 위에 위치하면서 공간낭비가 이뤄지는것을 막기 위해.. 앱솔루트는 상위 요소의 공간 안에서 움직이기에...*/
+	align-items: center;
+	color: white;
+	z-index: 999;  /* 상위요소인 사진이 이 arrow를 덮어버린다.. 그러므로 z-index를 높여서, arrow가 덮이지 않게끔 해준다. z인덱스가 높을수록 , 우선순위가높다(가장 겉에 덮어진다). z인덱스가 같을땐, 나중에 덮어진게 실행된다.*/
+}
+
+.btn_slide {
+	position: relative;
+	transform: translateY(-40px);
+	width: 50vw;
+	display: flex;
+	justify-content: space-around;
+	z-index: 1000;
+}
+
+
+.btn_slide> * {
+	width: 20px;
+	height: 20px;
+	background-color: white;
+	border-radius: 100%;
+}
+
+.btn_slide>*:hover{
+	background-color: red;
+	
+}
+
+
+
+
+
+
+
+ul {
+   list-style:none;          /*이건 나만 자꾸 점(li생성시 표시되는) 이 찍혀서 점 스타일을 없앤 것  */
+   padding-left:0px;		/* 점이 찍히면서 들여쓰기 되는 것을 없앤 것. */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
